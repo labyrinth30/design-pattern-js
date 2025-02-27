@@ -3,7 +3,7 @@ import Grimpan from "./grimpan.js";
 // console.log(Grimpan.getInstance() === Grimpan.getInstance()) // true
 
 // 강결합 되어있는 코드
-// function main(){
+// function main() {
 //     Grimpan.getInstance().initialize();
 // }
 
