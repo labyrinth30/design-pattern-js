@@ -55,15 +55,14 @@ console.log(new Animal().isAnimal()); // true
 console.log(new Bird().fly()); // 훨훨
 
 class Penguin extends Bird {
-    // override fly() {
-    //     // LSP 위반 사례
-    //     throw new Error('펭귄은 날 수 없어요');
-    // }
+    override fly(): never {  // LSP 위반, 에러 발생
+        throw new Error('펭귄은 날 수 없어요');
+    }
 }
 // 펭귄(자식 클래스)으로 바꿨을 떄 타입 에러가 없어야함.
 console.log(new Penguin().isAnimal()); // true
 console.log(new Bird().fly().at(1)); // 훨
-console.log(new Penguin().fly().at(1)); // void에는 at 메서드가 없어 에러 발생
+// console.log(new Penguin().fly().at(1)); // never에 at 메서드가 없어 에러 발생
 // 해결법: Bird 클래스에서 fly()를 제거하고 Penguin 에서 fly()를 따로 구현한다. 모든 새가 날 수 있는 게 아니니까.
 
 // ISP 코드 예시
